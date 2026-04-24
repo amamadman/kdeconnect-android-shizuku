@@ -39,13 +39,14 @@ android {
     compileSdk = 36
     defaultConfig {
         applicationId = "org.kde.kdeconnect_tp"
-        minSdk = 23
+        minSdk = 24
         targetSdk = 35
         versionCode = 13505
         versionName = "1.35.5"
         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
     buildFeatures {
+        aidl = true
         viewBinding = true
         compose = true
         buildConfig = true
@@ -238,6 +239,8 @@ dependencies {
     coreLibraryDesugaring(libs.android.desugarJdkLibsNio)
 
     implementation(libs.androidx.compose.material3)
+    implementation(libs.shizuku.api)
+    implementation(libs.shizuku.provider)
     implementation(libs.androidx.compose.material.icons)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.activity.compose)
