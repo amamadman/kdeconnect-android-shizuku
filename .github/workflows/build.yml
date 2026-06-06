@@ -38,7 +38,7 @@ jobs:
       - name: Get version name
         id: version
         run: |
-          VERSION=$(grep 'versionName' build.gradle.kts | head -1 | sed 's/.*versionName = "\(.*?)"/\1/')
+          VERSION=$(grep 'versionName' build.gradle.kts | head -1 | grep -oP '(?<=versionName = ").*(?=")')
           echo "name=$VERSION-shizuku" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
